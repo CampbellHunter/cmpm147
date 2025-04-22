@@ -213,7 +213,6 @@ function setup() {
   numColsTwo = select("#asciiBoxTwo").attribute("rows") | 0;
   numRowsTwo = select("#asciiBoxTwo").attribute("cols") | 0;
 
-  //let canvas = createCanvas(16 * numCols, 16 * numRows);
   //canvas.parent("canvasContainerTwo");
   //select("canvas").elt.getContext("2d").imageSmoothingEnabled = false;
   //select("canvasContainerTwo").elt.getContext("2d").imageSmoothingEnabled = false;
