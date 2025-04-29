@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- This title is used for tabs and bookmarks -->
+	<title>Experiment 04 - Infinite Worlds</title>
+
+	<!-- Use UTF character set, a good idea with any webpage -->
+	<meta charset="UTF-8" />
+	<!-- Set viewport so page remains consistently scaled w narrow devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Include CSS file, including a site-wide CSS and for this particular page -->
+	<link rel="stylesheet" type="text/css" href="../css/site.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- Load jQuery library -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+	<!-- Load p5.js library -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
+
+	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
+    <script type="text/javascript" src="../js/site.js" DEFER></script>
+	<!-- Use me for a JavaScript OOP Project -->
+	<!-- <script type="text/javascript" src="./js/project.js" DEFER></script> -->
+	<!-- Use me for a p5.js project -->
+	<script type="text/javascript" src="./js/xxhash.min.js" DEFER></script>
+	<script type="text/javascript" src="./js/Tile.js" DEFER></script>
+	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
+</head>
+<body>
+	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
+	<main id="content">
+		<section>
+
+			<h1>Experiment 04 - Infinite Worlds</h1>
+
+			<div class="minor-section">
+				<button id="reseedButton">
+					reseed
+				</button><br>
+				<span id="canvasContainer" style="margin: 10px;"></span>
+				<span id="canvasContainerTwo" style="margin: 10px; width: 800px; height: 400px;"></span><br>
+				<!-- <span id="canvasContainerThree" style="margin: 10px;"></span><br> -->
+    			<!-- <textarea cols="20" rows="20" id="asciiBox" style="opacity: 0.5; letter-spacing: 1ex; width: 320px; margin: 10px; font-family: monospace;"></textarea> -->
+				<!-- <textarea cols="20" rows="20" id="asciiBoxTwo" style="opacity: 0.5; letter-spacing: 1ex; width: 320px; margin: 10px; font-family: monospace;"></textarea> -->
+				<!-- <textarea cols="20" rows="20" id="asciiBoxThree" style="opacity: 0.5; letter-spacing: 1ex; width: 320px; margin: 10px; font-family: monospace;"></textarea> -->
+			</div>
+
+			<div class="minor-section">
+				<div class="image-wrapper">
+					<img src="img/dopple.jpg">
+				</div>
+			</div>
+
+			<div class="minor-section">
+				<h2>Description</h2>
+				<p>Enter description here.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Technical</h2>
+				<p>Enter Technical here.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Reflection</h2>
+				<p>Campbell Hunter: While the original opus of this assignment was just us messing around with different generative tiling patterns, once we found some inspiration through those patterns, I honestly had a ton of fun. This was the first assignment that actually gave me an opportunity to bust out Procreate and draw up some spritesheets, so that alone is a huge plus. Other than that, the manner in which we collaborated on this assignment was slightly more hectic, but it felt like the final product was made larger simply because getting there took a bit more detective work (Good lord do we all need to start commenting out our code.) Whatever the case, I love my little reporter man, and I’m looking forward to working more in the realm of design and art when it comes to this course.</p>
+				<p>Phineas Asmelash: Enter reflection here.</p>
+				<p>Vivian Allen: I was mostly in charge of porting over Phineas’s code basis for the black and white, and triangle visuals over into the infinite generating glitch example. This is the first time I have had to significantly refactor code, and it was an interesting experience. Admittedly I was bashing my head against the wall for the first black and white world and thankfully Campbell figured it out for me, and using his work to help refactor the triangle world made a world of difference in my understanding of how to properly refactor. Other than that, we definitely need to comment more on code, so much time was spent trying to figure out what everything did or meant, and I did not help with that unfortunately. All experience for the next time though.</p>
+			</div>
+
+		</section>
+		<nav id="links" class="minor-section">
+			<!-- Put link back to homepage here. -->
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+		</nav>
+	</main>
+</body>
+</html>
