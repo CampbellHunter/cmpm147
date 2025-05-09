@@ -21,6 +21,12 @@ function getInspirations() {
       credit: "Zeppelin-ramp de Hindenburg / Hindenburg zeppelin disaster, Sam Shere, 1937",
       style: "triangles"
     },
+    {
+      name: "yinyang", 
+      assetUrl: "img/yin.png",
+      credit: "Yin and Yang, Zou Yan, 3rd Century BCE",
+      style: "circles"
+    },
   ];
 }
 
