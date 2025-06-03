@@ -23,8 +23,15 @@ class Mold {
   }
   
   update() {
+    // Priority
+    // TODO: create "wall" objects
+    // TODO: when particle hits object it "bounces back"
+    // TODO: "food" incentive object
+    // TODO: ability to place place "food" and "walls"
+
     this.vx = cos(this.heading);
     this.vy = sin(this.heading);
+    
     
     this.x = (this.x + this.vx + width) % width;
     this.y = (this.y + this.vy + height) % height;
