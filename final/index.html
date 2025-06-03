@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- This title is used for tabs and bookmarks -->
-	<title>Final Project - Slime City Sim</title>
+	<title>Experiment 02 - Living Impressions</title>
 
 	<!-- Use UTF character set, a good idea with any webpage -->
 	<meta charset="UTF-8" />
@@ -21,9 +21,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
 
 	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
-    <script type="text/javascript" src="../js/site.js" DEFEsR></script>
+    <!-- <script type="text/javascript" src="../js/site.js" DEFER></script> -->
+	<!-- Use me for a JavaScript OOP Project -->
+	<script type="text/javascript" src="./js/mold.js" DEFER></script>
 	<!-- Use me for a p5.js project -->
-	<script type="text/javascript" src="./js/mydesign.js" DEFER></script>
 	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
 </head>
 <body>
@@ -31,67 +32,37 @@
 	<main id="content">
 		<section>
 
-			<h1>Final Project - Slime City Sim</h1>
+			<h1>Experiment 02 - Living Impressions</h1>
 
-			<div class="minor-section results">
-                <div class="results-top">
-                    <div class="image-container">
-                        <p id="original"></p>
-                        <p class="caption"></p>
-                    </div>
-                    <div class="image-container">
-                        <p id="active"></p>
-                        <p>Active Image</p>
-                    </div>
-                    <div class="image-container">
-                        <p id="best"></p>
-                        <p>Best Image</p>
-                    </div>
-                </div>
-
-                <div class="controls">
-                    <div class="controls-col1">
-                        <select id="dropper"></select>
-                        <button id="restart">
-                        restart
-                        </button>
-                        <p>
-                        Mutation rate (<span id="rate"></span>%):<br /><input
-                            id="slider"
-                            type="range"
-                            min="1"
-                            max="100"
-                            value="100"
-                        />
-                        </p>
-                    </div>
-                    <div class="controls-col2">
-                        <p>Active score: <span id="activeScore"></span></p>
-                        <p>Exploration rate: <span id="fpsCounter"></span> fps</p>
-                        <p>Best score: <span id="bestScore"></span></p>
-                    </div>
-                </div>
-
-                <div class="results-bottom">
-                    <p id="memory" data-max-items="28"></p>
-                </div>
+			<div class="minor-section">
+				<div id="canvas-container">
+					<!-- canvas will be added here -->
+                     <p id="active"></p>
+				</div>
 			</div>
-            <div class="minor-section">
-                <h2>Description</h2>
-                <p></p>
-            </div>
 
+			<!-- <div class="minor-section">
+				<div class="image-wrapper">
+					<img src="img/landscape.png">
+				</div>
+			</div> -->
 
-            <div class="minor-section">
-                <h2>Technical</h2>
-                <p></p>
-            </div>
+			<div class="minor-section">
+				<h2>Description</h2>
+				<p>Growing up just a few miles from Big Sky National Reserve, I've always been enamoured by the way Montana's lancape changes with the setting sun. For this assignment, I intended to emulate that using generative design.  
+				</p>
+				<p>In this example, I was able to make a cohesive genarator using a random seed by storing the random values to use later. That way, the trees, reflections, and snow-topped mountains all follow the same contures making for a more complete picture. Finally, by using a shifting gradient to simulate a sunset, I was able to render the environment in a way that changes the color context as it goes.
+				</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Technical</h2>
+				<p><p>
+			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-                <p>Campbell Hunter: </p>
-				<p>Phineas Asmelash: </p>
-                <p>Vivian Allen: </p>
+				<p>Honestly pretty proud of this one. The skyline in particular added a lot to the final product, as when the hue of the sky shifts, it recontextualized the colors used in the foreground.</p>
 			</div>
 
 		</section>
