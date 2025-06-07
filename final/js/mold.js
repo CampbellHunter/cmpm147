@@ -1,10 +1,10 @@
 class Mold {
   constructor() {
-//     this.x = random(width);
-//     this.y = random(height);
+    this.x = random(width);
+    this.y = random(height);
     
-    this.x = width/2;
-    this.y = height/2;
+    // this.x = width/2;
+    // this.y = height/2;
     
     this.r = 0.5;
     
@@ -32,9 +32,21 @@ class Mold {
     this.vx = cos(this.heading);
     this.vy = sin(this.heading);
     
+    let nextX = (this.x + this.vx + width) % width;
+    let nextY = (this.y + this.vy + height) % height;
+    let c = get(nextX, nextY);
+    if (c[0] === 0 && c[1] === 0 && c[2] === 0) {
+      this.heading += 180; // bounce off the walld
+    }
+    else {
+      this.x = nextX;
+      this.y = nextY;
+    }
+
+    // this.x = nextX;
+    // this.y = nextY;
+
     
-    this.x = (this.x + this.vx + width) % width;
-    this.y = (this.y + this.vy + height) % height;
     
     this.getSensorPos(this.rSensorPos, this.heading + this.sensorAngle);
     this.getSensorPos(this.lSensorPos, this.heading - this.sensorAngle);
