@@ -4,16 +4,21 @@ let d;
 let currentCanvas;
 let wallManager;
 let drawMode = false;
+let extraCanvas;
+
 
 
 function setup() {
   currentCanvas = createCanvas(900, 600);
   currentCanvas.parent("active");
-  currentCanvas.elt.getContext('2d', { willReadFrequently: true });
+
+  extraCanvas = createGraphics(900, 600);
+  extraCanvas.clear();
+
   angleMode(DEGREES);
   d = pixelDensity();
 
-  // wallManager = new WallManager(width, height);
+
   for (let i=0; i<num; i++) {
     molds[i] = new Mold();
   }
@@ -23,23 +28,20 @@ function draw() {
   background(134,125,140, 5);
   // background(0, 5);
 
-  // wallManager.update();
-  // wallManager.render();
-
-  if (mouseIsPressed && drawMode) {
-    stroke(0);
-    strokeWeight(25);
-    line(mouseX, mouseY, mouseX + 20, mouseY);
-  }
-
   loadPixels();
-  
   
   for (let i=0; i<num; i++) {
     molds[i].update();
     molds[i].display();
   }
+
+  if (mouseIsPressed && drawMode) {
+    extraCanvas.fill(120, 20, 20);
+    // extraCanvas.strokeWeight(5);
+    extraCanvas.rect(mouseX, mouseY, 40, 40, 10);
+  }
   
+  image(extraCanvas, 0, 0);
   // updatePixels();
 }
 
@@ -50,8 +52,10 @@ function keyPressed() {
   }
   else if (key === 's') {
     drawMode = false;
+    console.log('Simulation only mode');
   }
   else if (key === 'c') {
     background(134, 125, 140);
+    console.log('clear canvas');
   }
 }
