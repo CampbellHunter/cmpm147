@@ -1,14 +1,14 @@
 class WallManager {
   constructor(w, h) {
     this.canvas = createGraphics(w, h);
-    this.canvas.background(255); // white = no wall
+    this.canvas.background(254); // white = no wall
     this.drawing = false;
-    this.wallColor = [0, 0, 0, 255]; // black RGBA
+    this.wallColor = [0, 0, 0, 0]; // black RGBA
   }
 
-  drawWallAt(x, y) {
-    this.canvas.stroke(this.wallColor);
-    this.canvas.strokeWeight(5);
+  drawWallAt(x, y, type) {
+    //this.canvas.stroke(this.wallColor);
+    //this.canvas.strokeWeight(-1);
     this.canvas.point(x, y);
   }
 
@@ -46,6 +46,7 @@ class WallManager {
   }
 
   clear() {
-    this.canvas.background(255); // wipe walls
+    this.canvas.background(254); // wipe walls
+    //console.log("Hello!")
   }
 }
