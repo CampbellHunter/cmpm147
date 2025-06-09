@@ -1,7 +1,8 @@
 class Mold {
-  constructor() {
-    this.x = random(width);
-    this.y = random(height);
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.source = [x, y];
     
     // this.x = width/2;
     // this.y = height/2;
@@ -11,7 +12,7 @@ class Mold {
     this.heading = random(360);
     this.vx = cos(this.heading);
     this.vy = sin(this.heading);
-    this.rotAngle = 45
+    this.rotAngle = 45;
     
     this.rSensorPos = createVector(0, 0);
     this.lSensorPos = createVector(0, 0);
@@ -20,6 +21,9 @@ class Mold {
     
     this.sensorAngle = 45;
     this.sensorDist = 10;
+
+    this.hasFood = false;
+    this.fed = false;
   }
   
   update() {
@@ -37,8 +41,15 @@ class Mold {
     let c = get(nextX, nextY);
     if (c[0] === 0 && c[1] === 0 && c[2] === 0) {
       this.heading += 180; // bounce off the walld
+    } else if (c[0] === 0 && c[1] === 255 && c[2] === 0){
+      this.hasFood = true;
+      console.log("holding food");
+    } else if (c[0] === 255 && c[1] === 255 && c[2] === 50 && this.hasFood ){
+      this.hasFood = false;
+      this.fed = true;
+      console.log("fed");
     }
-    else {
+    else { 
       this.x = nextX;
       this.y = nextY;
     }
@@ -46,7 +57,39 @@ class Mold {
     // this.x = nextX;
     // this.y = nextY;
 
-    
+    if(this.hasfood){
+      let adj; //used for atan
+      let opp; //used for atan
+      let side; // used to determine heading, 0 is left, 1 is right
+      let top; // used to determine heading, 0 is down, 1 is up
+      //for both side and top imagine that the slime particle is at the origin of a coordinated grid
+      //after we do atan we have to add or subtract 180 degrees from the value depending on where the source is in relation to the particle
+      //side and top are used to aid in that
+      if(this.x > this.source[0]){
+        side = 0;
+        adj = this.x - this.source[0];
+      } else {
+        side = 1;
+        adj = this.source[0] - this.x;
+      }
+      if( this.y < this.source[1]){
+        top = 0;
+        opp = this.source[1] - this.y;
+      } else{
+        top = 1;
+        opp = this.y - this.source[1];
+      }
+      if( side == 0, top == 0){
+        this.heading = 180 - atan(opp/adj);
+      } else if( side == 0, top == 1){
+        this.heading = 180 + atan(opp/adj);
+      } else if( side == 1, top == 0){
+        this.heading = atan(opp/adj);
+      } else {
+        this.heading = 360 - atan(opp/adj);
+      }
+
+    }
     
     this.getSensorPos(this.rSensorPos, this.heading + this.sensorAngle);
     this.getSensorPos(this.lSensorPos, this.heading - this.sensorAngle);
@@ -106,5 +149,10 @@ class Mold {
     sensor.y = (this.y + this.sensorDist * sin(angle) + height) % height;
   }
   
-  
+  getFedStatus(){
+    return this.fed;
+  }
+  setFedStatus(status){
+    this.fed = status;
+  }
 }
